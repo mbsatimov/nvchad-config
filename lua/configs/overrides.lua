@@ -27,7 +27,7 @@ M.mason = {
     "html-lsp",
     "typescript-language-server",
     "deno",
-    "prettierd",
+    "prettier",
     "eslint_d",
     "clangd",
     "clang-format",
@@ -51,6 +51,18 @@ M.nvimtree = {
         git = true,
       },
     },
+  },
+}
+require("lspconfig").phpactor.setup {
+  root_dir = function(_)
+    return vim.loop.cwd()
+  end,
+  init_options = {
+    ["language_server.diagnostics_on_update"] = false,
+    ["language_server.diagnostics_on_open"] = false,
+    ["language_server.diagnostics_on_save"] = true,
+    ["language_server_phpstan.enabled"] = false,
+    ["language_server_psalm.enabled"] = false,
   },
 }
 
